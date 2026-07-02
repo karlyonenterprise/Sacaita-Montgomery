@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Sem ligação | Sacaita MONTGOMERY</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --red:#9c1b2e;
+    --gold:#d4af37;
+    --white:#f2ede6;
+    --dark:#130607;
+    --dark2:#1c0a0b;
+  }
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle at 50% 20%, var(--dark2), var(--dark));
+    color:var(--white);
+    font-family:'Raleway', sans-serif;
+    text-align:center;
+    padding:32px;
+  }
+  .box{max-width:420px}
+  .mark{
+    font-family:'Cinzel', serif;
+    font-weight:900;
+    font-size:1.4rem;
+    letter-spacing:.08em;
+    color:var(--gold);
+    margin-bottom:24px;
+  }
+  h1{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    font-size:1.6rem;
+    margin-bottom:14px;
+    color:var(--white);
+  }
+  p{
+    font-size:.98rem;
+    line-height:1.6;
+    color:#cfc4b8;
+    margin-bottom:28px;
+  }
+  button{
+    font-family:'Raleway', sans-serif;
+    font-weight:600;
+    font-size:.95rem;
+    letter-spacing:.03em;
+    padding:12px 28px;
+    border-radius:999px;
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--gold);
+    cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  button:hover, button:focus-visible{
+    background:var(--gold);
+    color:var(--dark);
+    outline:none;
+  }
+  button:focus-visible{
+    box-shadow:0 0 0 3px rgba(212,175,55,0.4);
+  }
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="mark">SACAITA MONTGOMERY</div>
+    <h1>Sem ligação à internet</h1>
+    <p>Não foi possível carregar esta página. Verifica a tua ligação — assim que voltares a estar online, o conteúdo fica novamente disponível.</p>
+    <button onclick="location.reload()">Tentar novamente</button>
+  </div>
+</body>
+</html>

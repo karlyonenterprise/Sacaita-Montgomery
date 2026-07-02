@@ -1,0 +1,11 @@
+# ==========================================
+# robots.txt — Sacaita Montgomery
+# Substituir o domínio no Sitemap abaixo assim que o site for publicado
+# ==========================================
+
+User-agent: *
+Allow: /
+
+Disallow: /*.json$
+
+Sitemap: https://SEU-DOMINIO/sitemap.xml
