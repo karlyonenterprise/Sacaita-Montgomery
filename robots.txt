@@ -8,4 +8,4 @@ Allow: /
 
 Disallow: /*.json$
 
-Sitemap: https://SEU-DOMINIO/sitemap.xml
+Sitemap: https://sacaitamontgomery.vercel.app/sitemap.xml
