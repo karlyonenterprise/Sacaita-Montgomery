@@ -343,14 +343,96 @@
 </header>
 
 <!-- AUDIOBOOK SECTION -->
-<div class="audiobook-section">
+<div class="audiobook-section" id="audiobookSection">
   <h3><i class="fas fa-headphones"></i> Audiobook</h3>
-  <p>Ouça a narração profissional deste livro (em breve disponível):</p>
-  <audio controls style="display:none;">
-    <source src="" type="audio/mp3">
-    Seu navegador não suporta o elemento de áudio.
-  </audio>
-  <p style="font-size:10px;color:rgba(201,168,76,0.8);margin-top:8px;">⏳ Audiobook em preparação — em breve disponível</p>
+  <p style="margin-bottom:14px;">Ouça a narração deste livro, capítulo a capítulo, e acompanhe o texto ao mesmo tempo.</p>
+
+  <div id="audioPlayerWrap" style="border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:14px;">
+    <p id="audioNowPlaying" style="font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:6px;">Selecciona uma faixa abaixo</p>
+    <audio id="mainAudioPlayer" controls style="width:100%;">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+
+  <ul class="audiobook-tracklist" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+      <button type="button" class="track-play-btn" onclick="playTrack('audio/prefacio.mp3','Prefácio — Nota do Autor',this)" style="background:var(--gold);color:var(--dark);border:none;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <span style="flex:1;font-size:12px;">Prefácio — Nota do Autor</span>
+      <a href="#intro" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+      <button type="button" class="track-play-btn" onclick="playTrack('audio/nota-metodologica.mp3','Nota Metodológica',this)" style="background:var(--gold);color:var(--dark);border:none;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <span style="flex:1;font-size:12px;">Nota Metodológica</span>
+      <a href="#nota-metodologica" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Documento Histórico — Carta de Leopoldo II</span>
+      <a href="#doc-historico" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+      <button type="button" class="track-play-btn" onclick="playTrack('audio/capitulo-1.mp3','Capítulo 1 — A Colonização do Espírito',this)" style="background:var(--gold);color:var(--dark);border:none;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <span style="flex:1;font-size:12px;">Capítulo 1 — A Colonização do Espírito</span>
+      <a href="#cap1" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;">
+      <button type="button" class="track-play-btn" onclick="playTrack('audio/capitulo-2.mp3','Capítulo 2 — O Pântano Espiritual',this)" style="background:var(--gold);color:var(--dark);border:none;width:32px;height:32px;border-radius:50%;flex-shrink:0;cursor:pointer;">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <span style="flex:1;font-size:12px;">Capítulo 2 — O Pântano Espiritual</span>
+      <a href="#cap2" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 3 — Códigos da Espiritualidade</span>
+      <a href="#cap3" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 4 — Conexão com os Espíritos</span>
+      <a href="#cap4" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 5 — O Culto Ancestral</span>
+      <a href="#cap5" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 6 — Magia Sombria e Magia Natural</span>
+      <a href="#cap6" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 7 — A Lei da Ressonância Espiritual</span>
+      <a href="#cap7" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+    <li class="track-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:8px;padding:8px 12px;opacity:0.6;">
+      <span style="width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);">⏳</span>
+      <span style="flex:1;font-size:12px;">Capítulo 8 — O Pacto Espiritual</span>
+      <a href="#cap8" style="font-size:10px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:12px;padding:4px 10px;white-space:nowrap;">Ler texto</a>
+    </li>
+
+  </ul>
+
+  <p style="font-size:10px;color:rgba(201,168,76,0.8);margin-top:12px;text-align:center;">⏳ Restantes capítulos em narração — publicados em breve</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -358,6 +440,8 @@
   <h3><i class="fas fa-book"></i> Índice</h3>
   <ul class="toc-list">
     <li><a href="#intro">Prefácio — Nota do Autor</a></li>
+    <li><a href="#nota-metodologica">Nota Metodológica</a></li>
+    <li><a href="#doc-historico">Documento Histórico — Carta de Leopoldo II</a></li>
     <li><a href="#cap1">Capítulo 1: A Colonização do Espírito</a></li>
     <li><a href="#cap2">Capítulo 2: O Pântano Espiritual</a></li>
     <li><a href="#cap3">Capítulo 3: Códigos da Espiritualidade</a></li>
@@ -368,6 +452,42 @@
     <li><a href="#cap8">Capítulo 8: O Pacto Espiritual</a></li>
     <li><a href="#glossario">Glossário de Conceitos</a></li>
   </ul>
+</div>
+
+<!-- LEITOR DE PDF (sem download) -->
+<!-- Para activar: coloca o ficheiro PDF na raiz do site com o nome exacto definido em pdfFileName (script mais abaixo) -->
+<div class="pdf-reader-section" id="pdfReaderSection" style="display:none;">
+  <h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:1px;color:var(--gold);text-align:center;margin-bottom:10px;">
+    <i class="fas fa-file-pdf"></i> Ler Livro (PDF)
+  </h3>
+  <div id="pdfViewerWrap" oncontextmenu="return false;" style="border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#000;">
+    <iframe id="pdfFrame" src="" style="width:100%;height:70vh;border:none;display:block;" title="Leitor do livro"></iframe>
+  </div>
+  <p style="font-size:9px;color:rgba(201,168,76,0.7);margin-top:8px;text-align:center;">
+    Apenas leitura online — download e impressão desactivados.
+  </p>
+</div>
+
+<!-- OUVIR ESTE LIVRO (Text-to-Speech do navegador) -->
+<div class="tts-section" id="ttsSection" style="border:1px solid var(--border);border-radius:10px;padding:14px;margin:16px 0;text-align:center;">
+  <h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:1px;color:var(--gold);margin-bottom:10px;">
+    <i class="fas fa-volume-up"></i> Ouvir Este Livro
+  </h3>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+    <button type="button" id="ttsPlayBtn" onclick="ttsPlay()" style="background:var(--gold);color:var(--dark);border:none;padding:10px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
+      <i class="fa-solid fa-play"></i> Ouvir
+    </button>
+    <button type="button" id="ttsPauseBtn" onclick="ttsPause()" style="background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
+      <i class="fa-solid fa-pause"></i> Pausar
+    </button>
+    <button type="button" id="ttsStopBtn" onclick="ttsStop()" style="background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 18px;border-radius:20px;font-size:12px;cursor:pointer;">
+      <i class="fa-solid fa-stop"></i> Parar
+    </button>
+  </div>
+  <p id="ttsStatus" style="font-size:10px;color:rgba(201,168,76,0.8);margin-top:8px;">Toca em "Ouvir" para começar a leitura em voz alta.</p>
+  <p id="ttsUnsupported" style="display:none;font-size:10px;color:rgba(201,168,76,0.6);margin-top:8px;">
+    O teu navegador não suporta leitura em voz alta. Experimenta Chrome, Edge ou Safari.
+  </p>
 </div>
 
 <!-- BOOK CONTENT -->
@@ -393,6 +513,47 @@
     «Nasci no pântano. Cresci no pântano. Aprendi que o pântano não é lugar de perdição — é lugar de transformação.»<br><br>
     — Sacaita Montgomery, Beira, 2026
   </div>
+</div>
+
+<!-- NOTA METODOLÓGICA -->
+<div class="chapter" id="nota-metodologica">
+  <div class="chapter-number">Nota</div>
+  <h2>Nota Metodológica</h2>
+
+  <p>Este volume resulta de mais de duas décadas de observação directa de práticas espirituais tradicionais em Moçambique, combinadas com estudo sistemático de religião comparada, filosofia, enfermagem e neurociência.</p>
+
+  <p>As afirmações sobre a cosmologia africana são apresentadas como sistema de conhecimento — não como superstição, não como dogma religioso, e não como oposição à ciência. Onde existem convergências com outras tradições filosóficas ou com a ciência contemporânea, estas são assinaladas com cuidado, sem forçar equivalências que não existem.</p>
+
+  <p>As secções relativas a práticas como a magia sombria e os pactos espirituais são redigidas em registo etnográfico e comparativo — descrevendo o que as tradições afirmam e o que os praticantes relatam, sem constituir guia ou instrução. O leitor encontrará ali análise, não receituário.</p>
+
+  <p>Os nomes em línguas bantu (Makua, Sena, Tsonga, Yao) são transliterados com a grafia mais comum nas fontes académicas disponíveis. As línguas africanas têm variações dialectais significativas: eventuais diferenças em relação ao uso local do leitor devem ser entendidas como consequência dessa riqueza, não como erro.</p>
+
+  <p>As referências bibliográficas no final do volume apontam para obras que o leitor pode consultar para aprofundar cada dimensão — filosófica, antropológica, neurológica e histórica.</p>
+</div>
+
+<!-- DOCUMENTO HISTÓRICO -->
+<div class="chapter" id="doc-historico">
+  <div class="chapter-number">Documento Histórico</div>
+  <h2>Carta do Rei Leopoldo II ao Clero Colonial</h2>
+  <div class="chapter-subtitle">c. 1883</div>
+
+  <p style="font-size:12px;opacity:0.85;"><em>Nota: O texto que se segue é atribuído ao Rei Leopoldo II da Bélgica e circula amplamente em contextos académicos e activistas africanos. A sua autenticidade documental exacta é debatida, mas o seu conteúdo reflecte com precisão a ideologia e as directrizes que guiaram a evangelização colonial em África. É reproduzido aqui como documento de análise histórica, não como aprovação.</em></p>
+
+  <div class="epigraph">
+    «Reverendos Padres e Caros Compatriotas: O fim que a minha empresa colonial na África Central pretende atingir é igualmente religioso, civilizador e económico. Portanto, quero que vos torneis os instrumentos para centralizar a nossa influência sobre os indígenas...<br><br>
+    ...Vós, os sacerdotes católicos, deveis ter um único objectivo: o de nos tornar os mestres indiscutíveis dos indígenas. Deveis substituir as suas lendas pagãs pelos ensinamentos da Bíblia. Para isso, deveis persuadi-los a abandonar os seus costumes e tradições que, mesmo sendo às vezes excelentes, são contrários ao nosso objectivo. Devem também evitar que os indígenas pensem por si mesmos e nos associem a outros europeus.<br><br>
+    Devem ensinar-lhes a temer o inferno. Devem dizer-lhes que o baptismo os salva dos tormentos do inferno. Devem dizer-lhes que o nosso Deus é o único verdadeiro Deus e que os seus deuses são falsos e diabólicos. Devem ensiná-los a obedecer, e que a resistência aos brancos é desobediência à vontade de Deus.»
+  </div>
+
+  <h3 style="margin-top:24px;">Reflexão do Autor sobre a Carta</h3>
+
+  <p>Leio esta carta e reconheço uma estratégia. Não é a estratégia de alguém que acredita genuinamente que o Deus que descreve é misericordioso. É a estratégia de alguém que percebeu que a religião, bem utilizada, é mais eficaz do que qualquer arma.</p>
+
+  <p>O que Leopoldo II compreendeu — e o que este livro analisa em detalhe — é que um povo cujo espírito está colonizado não precisa de correntes físicas. Ele próprio se prende. Ele próprio rejeita as suas raízes. Ele próprio chama de demónio ao que os seus avós chamavam de protector.</p>
+
+  <p>Esta carta não é história distante. As suas consequências vivem em cada moçambicano que hesita antes de mencionar os seus ancestrais na presença de alguém de outra religião. Vivem em cada criança cujo nome traduzido perde o significado que os anciãos lhe deram. Vivem no silêncio que cobre as práticas que continuam a acontecer, mas que não podem ser ditas em voz alta.</p>
+
+  <p>Este livro começa aqui, neste documento, porque é honesto começar pelo ferimento. Só se cura o que se nomeia.</p>
 </div>
 
 <!-- CAPÍTULO 1 -->
@@ -726,6 +887,142 @@
       });
     });
   }
+
+  // ============================================
+  // LEITOR DE PDF (sem download) — activa sozinho
+  // se o ficheiro PDF existir na raiz do site.
+  // ============================================
+  (function initPdfReader() {
+    const pdfFileName = "pantano-vol1.pdf";
+    const section = document.getElementById('pdfReaderSection');
+    const frame = document.getElementById('pdfFrame');
+
+    fetch(pdfFileName, { method: 'HEAD' })
+      .then((res) => {
+        if (!res.ok) return;
+        // #toolbar=0 e #navpanes=0 escondem o botão nativo de download/impressão do PDF
+        frame.src = pdfFileName + "#toolbar=0&navpanes=0&scrollbar=1";
+        section.style.display = 'block';
+      })
+      .catch(() => { /* PDF ainda não existe — mantém a leitura em HTML */ });
+
+    // Bloqueia clique direito e atalhos de impressão/gravar dentro da área do leitor
+    section.addEventListener('contextmenu', (e) => e.preventDefault());
+    document.addEventListener('keydown', (e) => {
+      if (section.style.display !== 'none' && (e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p')) {
+        e.preventDefault();
+      }
+    });
+  })();
+
+  // ============================================
+  // AUDIOBOOK — reprodutor de faixas sequenciais
+  // ============================================
+  (function initAudiobook() {
+    const player = document.getElementById('mainAudioPlayer');
+    const nowPlaying = document.getElementById('audioNowPlaying');
+    let activeBtn = null;
+
+    window.playTrack = function (src, title, btnEl) {
+      player.src = src;
+      player.play();
+      nowPlaying.textContent = 'A tocar: ' + title;
+
+      if (activeBtn) {
+        activeBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+      btnEl.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      activeBtn = btnEl;
+
+      player.onpause = () => {
+        btnEl.innerHTML = '<i class="fa-solid fa-play"></i>';
+      };
+      player.onplay = () => {
+        btnEl.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      };
+      player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+  })();
+
+  // ============================================
+  // OUVIR ESTE LIVRO — leitura em voz alta (Web Speech API)
+  // Funciona nos navegadores que suportam speechSynthesis
+  // (Chrome, Edge, Safari; parcialmente no Firefox).
+  // ============================================
+  (function initTTS() {
+    const statusEl = document.getElementById('ttsStatus');
+    const unsupportedEl = document.getElementById('ttsUnsupported');
+    const ttsSection = document.getElementById('ttsSection');
+
+    if (!('speechSynthesis' in window)) {
+      ttsSection.querySelectorAll('button').forEach(b => b.disabled = true);
+      statusEl.style.display = 'none';
+      unsupportedEl.style.display = 'block';
+      return;
+    }
+
+    let utterances = [];
+    let currentIndex = 0;
+    let isPlaying = false;
+
+    function buildUtterances() {
+      const content = document.querySelector('.book-content');
+      const blocks = content.querySelectorAll('h2, h3, .chapter-subtitle, p');
+      utterances = Array.from(blocks)
+        .map(el => el.textContent.trim())
+        .filter(t => t.length > 0)
+        .map(text => {
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = 'pt-PT';
+          u.rate = 0.95;
+          return u;
+        });
+      utterances.forEach((u, i) => {
+        u.onend = () => {
+          if (isPlaying && i === currentIndex) {
+            currentIndex++;
+            playNext();
+          }
+        };
+      });
+    }
+
+    function playNext() {
+      if (currentIndex >= utterances.length) {
+        isPlaying = false;
+        statusEl.textContent = 'Leitura concluída.';
+        return;
+      }
+      statusEl.textContent = 'A ler em voz alta...';
+      speechSynthesis.speak(utterances[currentIndex]);
+    }
+
+    window.ttsPlay = function () {
+      if (utterances.length === 0) buildUtterances();
+      if (speechSynthesis.paused) {
+        speechSynthesis.resume();
+        isPlaying = true;
+        statusEl.textContent = 'A ler em voz alta...';
+        return;
+      }
+      isPlaying = true;
+      playNext();
+    };
+
+    window.ttsPause = function () {
+      if (speechSynthesis.speaking) {
+        speechSynthesis.pause();
+        statusEl.textContent = 'Pausado.';
+      }
+    };
+
+    window.ttsStop = function () {
+      speechSynthesis.cancel();
+      isPlaying = false;
+      currentIndex = 0;
+      statusEl.textContent = 'Leitura parada.';
+    };
+  })();
 </script>
 
 </body>
