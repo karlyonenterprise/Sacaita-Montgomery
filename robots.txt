@@ -9,3 +9,4 @@ Allow: /
 Disallow: /*.json$
 
 Sitemap: https://sacaitamontgomery.vercel.app/sitemap.xml
+Sitemap: https://sacaitamontgomery.vercel.app/sitemap.txt
